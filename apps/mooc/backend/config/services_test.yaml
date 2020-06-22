@@ -1,0 +1,14 @@
+framework:
+  test: true
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  Gtto\Tests\:
+    resource: '../../../../tests'
+
+  # Instance selector
+  Gtto\Shared\Domain\RandomNumberGenerator: '@Gtto\Tests\Shared\Infrastructure\ConstantRandomNumberGenerator'
+#  Gtto\Shared\Domain\Bus\Event\EventBus: '@Gtto\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'

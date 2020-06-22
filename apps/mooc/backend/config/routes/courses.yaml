@@ -1,0 +1,4 @@
+courses_put:
+  path: /courses/{id}
+  controller: Gtto\Apps\Mooc\Backend\Controller\Courses\CoursesPutController
+  methods:  [PUT]

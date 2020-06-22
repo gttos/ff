@@ -1,0 +1,93 @@
+imports:
+  - { resource: ../../../../src/Backoffice/Shared/Infrastructure/Symfony/DependencyInjection/backoffice_services.yaml }
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  # Configure
+  _instanceof:
+    Gtto\Shared\Domain\Bus\Event\DomainEventSubscriber:
+      tags: ['codely.domain_event_subscriber']
+
+    Gtto\Shared\Domain\Bus\Command\CommandHandler:
+      tags: ['codely.command_handler']
+
+    Gtto\Shared\Domain\Bus\Query\QueryHandler:
+      tags: ['codely.query_handler']
+
+  Gtto\Apps\Backoffice\Backend\Controller\:
+    resource: '../src/Controller'
+    tags: ['controller.service_arguments']
+
+
+  # Wire
+  Gtto\Shared\:
+    resource: '../../../../src/Shared'
+
+  Gtto\Backoffice\:
+    resource: '../../../../src/Backoffice'
+
+  # -- TAGGING --
+  Gtto\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus:
+    arguments: [!tagged codely.domain_event_subscriber]
+    lazy: true
+
+  Gtto\Shared\Infrastructure\Bus\Event\DomainEventMapping:
+    arguments: [!tagged codely.domain_event_subscriber]
+
+  Gtto\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator:
+    arguments: [!tagged codely.domain_event_subscriber]
+
+  Gtto\Shared\Infrastructure\Doctrine\DatabaseConnections:
+    arguments: [!tagged codely.database_connection]
+
+  Gtto\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  Gtto\Shared\Infrastructure\Symfony\ApiExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception, method: onException }
+
+  Gtto\Shared\Infrastructure\Symfony\BasicHttpAuthMiddleware:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+
+  # -- APP DEFINITIONS --
+  # Command/Query Handlers
+  Gtto\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
+    arguments: [!tagged codely.command_handler]
+
+  Gtto\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
+    arguments: [!tagged codely.query_handler]
+
+  # RabbitMQ
+  Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection:
+    arguments:
+      - host: '%env(RABBITMQ_HOST)%'
+        port: '%env(RABBITMQ_PORT)%'
+        vhost: '%env(RABBITMQ_MOOC_VHOST)%'
+        login: '%env(RABBITMQ_LOGIN)%'
+        password: '%env(RABBITMQ_PASSWORD)%'
+        read_timeout: 2
+        write_timeout: 2
+        connect_timeout: 5
+
+  Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus:
+    arguments: ['@Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection', '%env(RABBITMQ_EXCHANGE)%']
+
+  Gtto\Shared\Infrastructure\Elasticsearch\ElasticsearchClient:
+    factory: '@Gtto\Shared\Infrastructure\Elasticsearch\ElasticsearchClientFactory'
+    arguments:
+      - '%env(BACKOFFICE_ELASTICSEARCH_HOST)%'
+      - '%env(BACKOFFICE_ELASTICSEARCH_INDEX_PREFIX)%'
+      - '%kernel.project_dir%/../../../etc/databases/backoffice'
+      - '%env(APP_ENV)%'
+    public: true
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  Gtto\Shared\Domain\Bus\Event\EventBus: '@Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus'
+  Gtto\Backoffice\Courses\Domain\BackofficeCourseRepository: '@Gtto\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository'
