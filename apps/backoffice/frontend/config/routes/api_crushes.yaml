@@ -1,0 +1,4 @@
+api_crushes_get:
+  path: /api/crushes
+  controller: Gtto\Apps\Backoffice\Frontend\Controller\Crushes\ApiCrushesGetController
+  methods:  [GET]

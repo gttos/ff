@@ -8,8 +8,8 @@ use Gtto\Shared\Domain\Bus\Event\DomainEvent;
 use Gtto\Shared\Infrastructure\Bus\Event\DomainEventMapping;
 use Gtto\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineDomainEventsConsumer;
 use Gtto\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus;
-use Gtto\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
-use Gtto\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
+use Gtto\Tests\Mooc\Crushes\Domain\CrushCreatedDomainEventMother;
+use Gtto\Tests\Mooc\CrushesCounter\Domain\CrushesCounterIncrementedDomainEventMother;
 use Gtto\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
 
@@ -32,8 +32,8 @@ final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_publish_and_consume_domain_events_from_msql(): void
     {
-        $domainEvent        = CourseCreatedDomainEventMother::random();
-        $anotherDomainEvent = CoursesCounterIncrementedDomainEventMother::random();
+        $domainEvent        = CrushCreatedDomainEventMother::random();
+        $anotherDomainEvent = CrushesCounterIncrementedDomainEventMother::random();
 
         $this->bus->publish($domainEvent, $anotherDomainEvent);
 

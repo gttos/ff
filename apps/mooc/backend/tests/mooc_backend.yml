@@ -16,14 +16,14 @@ mooc_backend:
       contexts:
         - Gtto\Tests\Shared\Infrastructure\Behat\ApiContext
 
-    courses:
-      paths: [ apps/mooc/backend/tests/features/courses ]
+    crushes:
+      paths: [ apps/mooc/backend/tests/features/crushes ]
       contexts:
         - Gtto\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
         - Gtto\Tests\Shared\Infrastructure\Behat\ApiContext
 
-    courses_counter:
-      paths: [ apps/mooc/backend/tests/features/courses_counter ]
+    crushes_counter:
+      paths: [ apps/mooc/backend/tests/features/crushes_counter ]
       contexts:
         - Gtto\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
         - Gtto\Tests\Shared\Infrastructure\Behat\ApiContext

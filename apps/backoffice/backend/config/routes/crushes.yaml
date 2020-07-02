@@ -1,0 +1,5 @@
+crushes_get:
+  path: /crushes
+  controller: Gtto\Apps\Backoffice\Backend\Controller\Crushes\CrushesGetController
+  defaults: { auth: true }
+  methods:  [GET]

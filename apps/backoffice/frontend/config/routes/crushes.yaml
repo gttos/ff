@@ -1,0 +1,9 @@
+crushes_get:
+  path: /crushes
+  controller: Gtto\Apps\Backoffice\Frontend\Controller\Crushes\CrushesGetController
+  methods:  [GET]
+
+crushes_post:
+  path: /crushes
+  controller: Gtto\Apps\Backoffice\Frontend\Controller\Crushes\CrushesPostController
+  methods:  [POST]

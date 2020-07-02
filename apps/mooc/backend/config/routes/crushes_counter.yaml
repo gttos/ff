@@ -1,0 +1,4 @@
+crushes_counter_get:
+  path: /crushes-counter
+  controller: Gtto\Apps\Mooc\Backend\Controller\CrushesCounter\CrushesCounterGetController
+  methods:  [GET]

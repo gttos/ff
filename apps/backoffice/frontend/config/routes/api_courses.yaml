@@ -1,4 +1,0 @@
-api_courses_get:
-  path: /api/courses
-  controller: Gtto\Apps\Backoffice\Frontend\Controller\Courses\ApiCoursesGetController
-  methods:  [GET]

@@ -11,10 +11,10 @@ services:
         password: '%env(MOOC_DATABASE_PASSWORD)%'
       - '%env(APP_ENV)%'
     tags:
-      - { name: codely.database_connection }
+      - { name: gtto.database_connection }
     public: true
 
 
-  # Courses
-  Gtto\Mooc\Courses\Domain\CourseRepository: '@Gtto\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
+  # Crushes
+  Gtto\Mooc\Crushes\Domain\CrushRepository: '@Gtto\Mooc\Crushes\Infrastructure\Persistence\DoctrineCrushRepository'
 

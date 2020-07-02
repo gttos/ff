@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "crushes": {
+      "properties": {
+        "id": {
+          "type": "keyword",
+          "index": true
+        },
+        "name": {
+          "type": "text",
+          "index": true
+        }
+      }
+    }
+  }
+}

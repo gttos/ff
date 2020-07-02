@@ -71,7 +71,7 @@ final class DoctrineEntityManagerFactory
     {
         $config = Setup::createConfiguration($isDevMode, null, new ArrayCache());
 
-        $config->setMetadataDriverImpl(new SimplifiedXmlDriver(array_merge(self::$sharedPrefixes, $contextPrefixes)));
+        $config->setMetadataDriverImpl(new SimplifiedXmlDriver( array_merge(self::$sharedPrefixes, $contextPrefixes)));
 
         return $config;
     }

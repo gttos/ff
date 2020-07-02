@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Gtto\Tests\Shared\Infrastructure\Bus\Event\RabbitMq;
 
-use Gtto\Mooc\Courses\Domain\CourseCreatedDomainEvent;
-use Gtto\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEvent;
+use Gtto\Mooc\Crushes\Domain\CrushCreatedDomainEvent;
+use Gtto\Mooc\CrushesCounter\Domain\CrushesCounterIncrementedDomainEvent;
 use Gtto\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final class TestAllWorksOnRabbitMqEventsPublished implements DomainEventSubscriber
@@ -13,12 +13,12 @@ final class TestAllWorksOnRabbitMqEventsPublished implements DomainEventSubscrib
     public static function subscribedTo(): array
     {
         return [
-            CourseCreatedDomainEvent::class,
-            CoursesCounterIncrementedDomainEvent::class,
+            CrushCreatedDomainEvent::class,
+            CrushesCounterIncrementedDomainEvent::class,
         ];
     }
 
-    /** @param CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event */
+    /** @param CrushCreatedDomainEvent|CrushesCounterIncrementedDomainEvent $event */
     public function __invoke($event)
     {
     }

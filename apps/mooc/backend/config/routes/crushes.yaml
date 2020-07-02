@@ -1,0 +1,4 @@
+crushes_put:
+  path: /crushes/{id}
+  controller: Gtto\Apps\Mooc\Backend\Controller\Crushes\CrushesPutController
+  methods:  [PUT]

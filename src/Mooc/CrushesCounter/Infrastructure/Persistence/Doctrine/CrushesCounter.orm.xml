@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Gtto\Mooc\CrushesCounter\Domain\CrushesCounter" table="crushes_counter">
+        <id name="id" type="crush_counter_id" column="id" length="36" />
+
+        <field name="existingCrushes" type="crush_ids" column="existing_crushes" />
+
+        <embedded name="total" class="Gtto\Mooc\CrushesCounter\Domain\CrushesCounterTotal" use-column-prefix="false" />
+    </entity>
+
+</doctrine-mapping>

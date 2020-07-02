@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="http://codely.tv">
-    <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
+  <a href="http://gtto.tv">
+    <img src="http://gtto.tv/wp-content/uploads/2016/05/cropped-logo-gttoTV.png" width="192px" height="192px"/>
   </a>
 </p>
 
@@ -9,8 +9,8 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/CodelyTV-OS-green.svg?style=flat-square" alt="codely.tv"/></a>
-    <a href="http://pro.codely.tv"><img src="https://img.shields.io/badge/CodelyTV-PRO-black.svg?style=flat-square" alt="CodelyTV Courses"/></a>
+    <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/CodelyTV-OS-green.svg?style=flat-square" alt="gtto.tv"/></a>
+    <a href="http://pro.gtto.tv"><img src="https://img.shields.io/badge/CodelyTV-PRO-black.svg?style=flat-square" alt="CodelyTV Crushes"/></a>
     <a href="#"><img src="https://img.shields.io/badge/Symfony-5.0-purple.svg?style=flat-square&logo=symfony" alt="Symfony 5.0"/></a>
     <a href="https://github.com/CodelyTV/php-ddd-example/actions"><img src="https://github.com/CodelyTV/php-ddd-example/workflows/CI/badge.svg" alt="CI pipeline status" /></a>
 </p>
@@ -78,14 +78,14 @@
 
 ## 🤔 Project explanation
 
-This project tries to be a MOOC (Massive Open Online Course) platform.
+This project tries to be a MOOC (Massive Open Online Crush) platform.
 It has a [Web](apps/backoffice/frontend/src/Controller), an [API](apps/mooc/backend/src/Controller) and
 some [Consumers](apps/mooc/backend/src/Command).
 
 ### ⛱️ Bounded Contexts
 
-* [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on
-* [Backoffice](src/Backoffice): Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
+* [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Crushes public platform with users, videos, notifications, and so on
+* [Backoffice](src/Backoffice): Here you'll find the use cases needed by the Customer Support department in order to manage users, crushes, videos, and so on.
 
 ### 🎯 Hexagonal Architecture
 
@@ -131,11 +131,11 @@ Our repositories try to be as simple as possible usually only containing 2 metho
 If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
-You can see an example [here](src/Mooc/Courses/Domain/CourseRepository.php)
-and its implementation [here](src/Mooc/Courses/Infrastructure/Persistence/DoctrineCourseRepository.php).
+You can see an example [here](src/Mooc/Crushes/Domain/CrushRepository.php)
+and its implementation [here](src/Mooc/Crushes/Infrastructure/Persistence/DoctrineCrushRepository.php).
 
 ### Aggregates
-You can see an example of an aggregate [here](src/Mooc/Courses/Domain/Course.php). All aggregates should
+You can see an example of an aggregate [here](src/Mooc/Crushes/Domain/Crush.php). All aggregates should
 extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
@@ -155,10 +155,10 @@ There are some things missing (add swagger, improve documentation...), feel free
 some guidelines feel free to contact us :)
 
 ## 🤩 Extra
-This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
+This code was show in the [From framework coupled code to #microservices through #DDD](http://gtto.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://gtto.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
 
-🎥 Used in the CodelyTV Pro courses:
-* [🇪🇸 DDD in PHP](https://pro.codely.tv/library/ddd-en-php/about/)
-* [🇪🇸 Arquitectura Hexagonal](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
-* [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
-* [🇪🇸 Comunicación entre microservicios: Event-Driven Architecture](https://pro.codely.tv/library/comunicacion-entre-microservicios-event-driven-architecture/74823/about/)
+🎥 Used in the CodelyTV Pro crushes:
+* [🇪🇸 DDD in PHP](https://pro.gtto.tv/library/ddd-en-php/about/)
+* [🇪🇸 Arquitectura Hexagonal](https://pro.gtto.tv/library/arquitectura-hexagonal/66748/about/)
+* [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.gtto.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
+* [🇪🇸 Comunicación entre microservicios: Event-Driven Architecture](https://pro.gtto.tv/library/comunicacion-entre-microservicios-event-driven-architecture/74823/about/)

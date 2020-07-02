@@ -10,13 +10,13 @@ services:
   # Configure
   _instanceof:
     Gtto\Shared\Domain\Bus\Event\DomainEventSubscriber:
-      tags: ['codely.domain_event_subscriber']
+      tags: ['gtto.domain_event_subscriber']
 
     Gtto\Shared\Domain\Bus\Command\CommandHandler:
-      tags: ['codely.command_handler']
+      tags: ['gtto.command_handler']
 
     Gtto\Shared\Domain\Bus\Query\QueryHandler:
-      tags: ['codely.query_handler']
+      tags: ['gtto.query_handler']
 
   Gtto\Apps\Backoffice\Frontend\Controller\:
     resource: '../src/Controller'
@@ -35,17 +35,17 @@ services:
 
   # -- TAGGING --
   Gtto\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus:
-    arguments: [!tagged codely.domain_event_subscriber]
+    arguments: [!tagged gtto.domain_event_subscriber]
     lazy: true
 
   Gtto\Shared\Infrastructure\Bus\Event\DomainEventMapping:
-    arguments: [!tagged codely.domain_event_subscriber]
+    arguments: [!tagged gtto.domain_event_subscriber]
 
   Gtto\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator:
-    arguments: [!tagged codely.domain_event_subscriber]
+    arguments: [!tagged gtto.domain_event_subscriber]
 
   Gtto\Shared\Infrastructure\Doctrine\DatabaseConnections:
-    arguments: [!tagged codely.database_connection]
+    arguments: [!tagged gtto.database_connection]
 
   Gtto\Shared\Infrastructure\Symfony\ApiExceptionListener:
     tags:
@@ -59,10 +59,10 @@ services:
   # -- APP DEFINITIONS --
   # Command/Query Handlers
   Gtto\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
-    arguments: [!tagged codely.command_handler]
+    arguments: [!tagged gtto.command_handler]
 
   Gtto\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
-    arguments: [!tagged codely.query_handler]
+    arguments: [!tagged gtto.query_handler]
 
   # RabbitMQ
   Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection:
@@ -90,7 +90,7 @@ services:
 
   # -- IMPLEMENTATIONS SELECTOR --
   Gtto\Shared\Domain\Bus\Event\EventBus: '@Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus'
-  Gtto\Backoffice\Courses\Domain\BackofficeCourseRepository: '@Gtto\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository'
+  Gtto\Backoffice\Crushes\Domain\BackofficeCrushRepository: '@Gtto\Backoffice\Crushes\Infrastructure\Persistence\ElasticsearchBackofficeCrushRepository'
 
 twig:
   default_path: '%kernel.project_dir%/templates'

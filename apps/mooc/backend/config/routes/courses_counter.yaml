@@ -1,4 +1,0 @@
-courses_counter_get:
-  path: /courses-counter
-  controller: Gtto\Apps\Mooc\Backend\Controller\CoursesCounter\CoursesCounterGetController
-  methods:  [GET]

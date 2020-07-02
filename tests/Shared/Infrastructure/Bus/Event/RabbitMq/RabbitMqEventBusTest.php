@@ -12,8 +12,8 @@ use Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection;
 use Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqDomainEventsConsumer;
 use Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus;
 use Gtto\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqQueueNameFormatter;
-use Gtto\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
-use Gtto\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
+use Gtto\Tests\Mooc\Crushes\Domain\CrushCreatedDomainEventMother;
+use Gtto\Tests\Mooc\CrushesCounter\Domain\CrushesCounterIncrementedDomainEventMother;
 use Gtto\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use RuntimeException;
 use Throwable;
@@ -56,7 +56,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_publish_and_consume_domain_events_from_rabbitmq(): void
     {
-        $domainEvent = CourseCreatedDomainEventMother::random();
+        $domainEvent = CrushCreatedDomainEventMother::random();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
@@ -75,7 +75,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     {
         $this->expectException(RuntimeException::class);
 
-        $domainEvent = CoursesCounterIncrementedDomainEventMother::random();
+        $domainEvent = CrushesCounterIncrementedDomainEventMother::random();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
@@ -92,7 +92,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_retry_failed_domain_events(): void
     {
-        $domainEvent = CourseCreatedDomainEventMother::random();
+        $domainEvent = CrushCreatedDomainEventMother::random();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
@@ -113,7 +113,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_send_events_to_dead_letter_after_retry_failed_domain_events(): void
     {
-        $domainEvent = CourseCreatedDomainEventMother::random();
+        $domainEvent = CrushCreatedDomainEventMother::random();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
