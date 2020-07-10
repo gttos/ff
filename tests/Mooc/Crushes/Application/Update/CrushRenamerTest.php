@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Gtto\Tests\Mooc\Crushes\Application\Update;
 
-use Gtto\Mooc\Crushes\Application\Update\crushRenamer;
+use Gtto\Mooc\Crushes\Application\Update\CrushRenamer;
 use Gtto\Mooc\Crushes\Domain\CrushNotExist;
 use Gtto\Tests\Mooc\Crushes\CrushesModuleUnitTestCase;
 use Gtto\Tests\Mooc\Crushes\Domain\CrushIdMother;
@@ -20,15 +20,15 @@ final class CrushRenamerTest extends crushesModuleUnitTestCase
     {
         parent::setUp();
 
-        $this->renamer = new crushRenamer($this->repository(), $this->eventBus());
+        $this->renamer = new CrushRenamer($this->repository(), $this->eventBus());
     }
 
     /** @test */
     public function it_should_rename_an_existing_crush(): void
     {
-        $crush        = CrushMother::random();
-        $newName       = CrushNameMother::random();
-        $renamedcrush = DuplicatorMother::with($crush, ['name' => $newName]);
+        $crush          = CrushMother::random();
+        $newName        = CrushNameMother::random();
+        $renamedcrush   = DuplicatorMother::with($crush, ['name' => $newName]);
 
         $this->shouldSearch($crush->id(), $crush);
         $this->shouldSave($renamedcrush);
