@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Gtto\Mooc\Crushes\Application\Create;
 
-use Gtto\Mooc\Shared\Domain\Date;
 use Gtto\Shared\Domain\Bus\Command\Command;
 
 final class CreateCrushCommand implements Command
@@ -14,16 +13,16 @@ final class CreateCrushCommand implements Command
     private $age;
     private $gender_id;
     private $email;
-    private $whatsapp;
-    private $instagram;
-    private $facebook;
+    private $whatsapp_url;
+    private $instagram_url;
+    private $facebook_url;
     private $is_star;
     private $met_at;
     private $created_at;
     private $user_id;
     private $country_id;
     private $zone_id;
-    private $eye_types_id;
+    private $eyes_types_id;
     private $hair_types_id;
     private $height_types_id;
     private $body_types_id;
@@ -33,9 +32,9 @@ final class CreateCrushCommand implements Command
     private $dick_types_id;
 
     public function __construct(
-        string $id, string $name, int $age, string $genderId, string $email, string $whatsapp, string $instagram,
-        string $facebook, bool $isStar, string $metAt, string $createdAt, string $userId, string $countryId, string $zoneId,
-        string $eyeTypesId, string $hairTypesId, string $heightTypesId, string $bodyTypesId, string $skinTypesId,
+        string $id, string $name, int $age, string $genderId, string $email, string $whatsappUrl, string $instagramUrl,
+        string $facebookUrl, bool $isStar, string $metAt, string $createdAt, string $userId, string $countryId, string $zoneId,
+        string $eyesTypesId, string $hairTypesId, string $heightTypesId, string $bodyTypesId, string $skinTypesId,
         string $titsTypesId, string $assTypesId, string $dickTypesId
     ){
         $this->id               = $id;
@@ -43,16 +42,16 @@ final class CreateCrushCommand implements Command
         $this->age              = $age;
         $this->gender_id        = $genderId;
         $this->email            = $email;
-        $this->whatsapp         = $whatsapp;
-        $this->instagram        = $instagram;
-        $this->facebook         = $facebook;
+        $this->whatsapp_url     = $whatsappUrl;
+        $this->instagram_url    = $instagramUrl;
+        $this->facebook_url     = $facebookUrl;
         $this->is_star          = $isStar;
         $this->met_at           = $metAt;
         $this->created_at       = $createdAt;
         $this->user_id          = $userId;
         $this->country_id       = $countryId;
         $this->zone_id          = $zoneId;
-        $this->eye_types_id     = $eyeTypesId;
+        $this->eyes_types_id     = $eyesTypesId;
         $this->hair_types_id    = $hairTypesId;
         $this->height_types_id  = $heightTypesId;
         $this->body_types_id    = $bodyTypesId;
@@ -105,25 +104,25 @@ final class CreateCrushCommand implements Command
     /**
      * @return string
      */
-    public function whatsapp(): string
+    public function whatsappUrl(): string
     {
-        return $this->whatsapp;
+        return $this->whatsapp_url;
     }
 
     /**
      * @return string
      */
-    public function instagram(): string
+    public function instagramUrl(): string
     {
-        return $this->instagram;
+        return $this->instagram_url;
     }
 
     /**
      * @return string
      */
-    public function facebook(): string
+    public function facebookUrl(): string
     {
-        return $this->facebook;
+        return $this->facebook_url;
     }
 
     /**
@@ -177,9 +176,9 @@ final class CreateCrushCommand implements Command
     /**
      * @return string
      */
-    public function eyeTypesId(): string
+    public function eyesTypesId(): string
     {
-        return $this->eye_types_id;
+        return $this->eyes_types_id;
     }
 
     /**

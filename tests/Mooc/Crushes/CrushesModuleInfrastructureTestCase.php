@@ -9,8 +9,4 @@ use Gtto\Tests\Mooc\Shared\Infrastructure\PhpUnit\MoocContextInfrastructureTestC
 
 abstract class CrushesModuleInfrastructureTestCase extends MoocContextInfrastructureTestCase
 {
-    protected function repository(): CrushRepository
-    {
-        return $this->service(CrushRepository::class);
-    }
 }

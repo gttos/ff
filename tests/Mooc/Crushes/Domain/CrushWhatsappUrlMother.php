@@ -23,6 +23,6 @@ final class CrushWhatsappUrlMother
 
     public static function random(): CrushWhatsappUrl
     {
-        return self::create(UuidMother::random());
+        return self::create('https://api.whatsapp.com/send?phone=34691867156');
     }
 }

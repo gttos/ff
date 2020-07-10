@@ -8,6 +8,28 @@
         <id name="id" type="crush_id" column="id" length="36" />
 
         <embedded name="name" class="Gtto\Mooc\Crushes\Domain\CrushName" use-column-prefix="false" />
+        <embedded name="age" class="Gtto\Mooc\Shared\Domain\Age" use-column-prefix="false" />
+        <field name="gender_id" type="gender_id" column="gender_id"/>
+        <embedded name="met_at" class="Gtto\Mooc\Shared\Domain\MetAt" use-column-prefix="false" />
+        <field name="zone_id" type="zone_id" column="zone_id"/>
+        <field name="user_id" type="user_id" column="user_id"/>
+        <field name="country_id" type="country_id" column="country_id"/>
+        <embedded name="email" class="Gtto\Mooc\Shared\Domain\Email" use-column-prefix="false" />
+        <field name="whatsapp_url" type="whatsapp_url" column="whatsapp_url"/>
+        <field name="instagram_url" type="instagram_url" column="instagram_url"/>
+        <field name="facebook_url" type="facebook_url" column="facebook_url"/>
+        <field name="is_star" type="boolean" column="is_star"/>
+        <field name="is_active" type="boolean" column="is_active"/>
+        <embedded name="created_at" class="Gtto\Mooc\Shared\Domain\CreatedAt" use-column-prefix="false" />
+        <field name="eyes_types_id" type="eyes_types_id" column="eyes_types_id"/>
+        <field name="hair_types_id" type="hair_types_id" column="hair_types_id"/>
+        <field name="height_types_id" type="height_types_id" column="height_types_id"/>
+        <field name="body_types_id" type="body_types_id" column="body_types_id"/>
+        <field name="skin_types_id" type="skin_types_id" column="skin_types_id"/>
+        <field name="tits_types_id" type="tits_types_id" column="tits_types_id"/>
+        <field name="ass_types_id" type="ass_types_id" column="ass_types_id"/>
+        <field name="dick_types_id" type="dick_types_id" column="dick_types_id"/>
+
     </entity>
 
 </doctrine-mapping>

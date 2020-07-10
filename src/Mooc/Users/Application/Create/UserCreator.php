@@ -34,7 +34,7 @@ final class UserCreator
     private $user_id;
     private $country_id;
     private $zone_id;
-    private $eye_types_id;
+    private $eyes_types_id;
     private $hair_types_id;
     private $height_types_id;
     private $body_types_id;

@@ -1,7 +1,7 @@
 services:
   # Databases
   Doctrine\ORM\EntityManager:
-    factory: [Gtto\Mooc\Shared\Infrastructure\Doctrine\MoocEntityManagerFactory, create]
+    factory: [Gtto\Mooc\Shared\Infrastructure\Persistence\Doctrine\MoocEntityManagerFactory, create]
     arguments:
       - driver:   '%env(MOOC_DATABASE_DRIVER)%'
         host:     '%env(MOOC_DATABASE_HOST)%'

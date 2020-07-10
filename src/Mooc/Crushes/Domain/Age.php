@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Gtto\Mooc\Shared\Domain;
+namespace Gtto\Mooc\Crushes\Domain;
 
 use Gtto\Shared\Domain\ValueObject\IntValueObject;
 

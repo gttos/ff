@@ -15,7 +15,7 @@ use Gtto\Mooc\Shared\Domain\User\UserInstagram;
 use Gtto\Mooc\Shared\Domain\User\UserWhatsapp;
 use Gtto\Mooc\Shared\Domain\User\DickTypesId;
 use Gtto\Mooc\Shared\Domain\User\Email;
-use Gtto\Mooc\Shared\Domain\User\EyeTypesId;
+use Gtto\Mooc\Shared\Domain\User\EyesTypesId;
 use Gtto\Mooc\Shared\Domain\User\GenderId;
 use Gtto\Mooc\Shared\Domain\User\HairTypesId;
 use Gtto\Mooc\Shared\Domain\User\HeightTypesId;

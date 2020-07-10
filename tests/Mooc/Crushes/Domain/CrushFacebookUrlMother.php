@@ -23,6 +23,6 @@ final class CrushFacebookUrlMother
 
     public static function random(): CrushFacebookUrl
     {
-        return self::create(UuidMother::random());
+        return self::create('https://www.facebook.com/santiago.gasparotto/');
     }
 }

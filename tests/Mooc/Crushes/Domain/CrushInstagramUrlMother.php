@@ -23,6 +23,6 @@ final class CrushInstagramUrlMother
 
     public static function random(): CrushInstagramUrl
     {
-        return self::create(UuidMother::random());
+        return self::create('https://www.instagram.com/gttosantiago/');
     }
 }
