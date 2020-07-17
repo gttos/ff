@@ -2,20 +2,20 @@
 
 declare(strict_types = 1);
 
-namespace Gtto\Mooc\Crushes\Infrastructure\Persistence\Doctrine;
+namespace Gtto\Mooc\Shared\Infrastructure\Persistence\Doctrine;
 
-use Gtto\Mooc\Shared\Domain\CrushId;
+use Gtto\Mooc\Shared\Domain\MomentId;
 use Gtto\Shared\Infrastructure\Persistence\Doctrine\UuidType;
 
-final class CrushIdType extends UuidType
+final class MomentIdType extends UuidType
 {
     public static function customTypeName(): string
     {
-        return 'crush_id';
+        return 'moment_id';
     }
 
     protected function typeClassName(): string
     {
-        return CrushId::class;
+        return MomentId::class;
     }
 }

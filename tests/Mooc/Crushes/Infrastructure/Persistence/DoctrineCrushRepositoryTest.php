@@ -8,8 +8,8 @@ use Doctrine\ORM\EntityManager;
 use Gtto\Mooc\Crushes\Domain\CrushRepository;
 use Gtto\Mooc\Crushes\Infrastructure\Persistence\DoctrineCrushRepository;
 use Gtto\Tests\Mooc\Crushes\CrushesModuleInfrastructureTestCase;
-use Gtto\Tests\Mooc\Crushes\Domain\CrushIdMother;
 use Gtto\Tests\Mooc\Crushes\Domain\CrushMother;
+use Gtto\Tests\Mooc\Shared\Domain\CrushIdMother;
 
 final class DoctrineCrushRepositoryTest extends CrushesModuleInfrastructureTestCase
 {

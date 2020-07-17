@@ -7,10 +7,10 @@ namespace Gtto\Tests\Mooc\CrushesCounter\Application\Increment;
 use Gtto\Mooc\CrushesCounter\Application\Increment\CrushesCounterIncrementer;
 use Gtto\Mooc\CrushesCounter\Application\Increment\IncrementCrushesCounterOnCrushCreated;
 use Gtto\Tests\Mooc\Crushes\Domain\CrushCreatedDomainEventMother;
-use Gtto\Tests\Mooc\Crushes\Domain\CrushIdMother;
 use Gtto\Tests\Mooc\CrushesCounter\CrushesCounterModuleUnitTestCase;
 use Gtto\Tests\Mooc\CrushesCounter\Domain\CrushesCounterIncrementedDomainEventMother;
 use Gtto\Tests\Mooc\CrushesCounter\Domain\CrushesCounterMother;
+use Gtto\Tests\Mooc\Shared\Domain\CrushIdMother;
 
 final class IncrementCrushesCounterOnCrushCreatedTest extends CrushesCounterModuleUnitTestCase
 {

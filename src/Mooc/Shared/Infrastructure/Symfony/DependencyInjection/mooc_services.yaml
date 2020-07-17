@@ -18,3 +18,6 @@ services:
   # Crushes
   Gtto\Mooc\Crushes\Domain\CrushRepository: '@Gtto\Mooc\Crushes\Infrastructure\Persistence\DoctrineCrushRepository'
 
+  # Moments
+  Gtto\Mooc\Moments\Domain\MomentRepository: '@Gtto\Mooc\Moments\Infrastructure\Persistence\DoctrineMomentRepository'
+

@@ -21,9 +21,8 @@ use Gtto\Mooc\Shared\Domain\Email;
 use Gtto\Mooc\Shared\Domain\GenderId;
 use Gtto\Mooc\Shared\Domain\CountryId;
 use Gtto\Mooc\Shared\Domain\CrushId;
-use Gtto\Mooc\Shared\Domain\MetAt;
+use Gtto\Mooc\Shared\Domain\UpdatedAt;
 use Gtto\Mooc\Shared\Domain\UserId;
-use Gtto\Mooc\Shared\Domain\ZoneId;
 use Gtto\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Crush extends AggregateRoot
@@ -58,8 +57,8 @@ final class Crush extends AggregateRoot
         CrushName $name,
         Age $age,
         GenderId $genderId,
-        MetAt $metAt,
-        ZoneId $zoneId,
+        CrushMetAt $metAt,
+        CrushZoneId $zoneId,
         CountryId $countryId,
         UserId $userId,
         Email $email,
@@ -84,7 +83,6 @@ final class Crush extends AggregateRoot
         $this->gender_id        = $genderId;
         $this->zone_id          = $zoneId;
         $this->user_id          = $userId;
-        // $this->is_relationship  = $isRelationship;
         $this->is_star          = $isStar;
         $this->is_active        = true;
         $this->country_id       = $countryId;
@@ -103,19 +101,19 @@ final class Crush extends AggregateRoot
         $this->created_at       = $createdAt;
     }
 
-    public static function create(CrushId $id, CrushName $name, Age $age, GenderId $genderId, MetAt $metAt,
-                                  ZoneId $zoneId, CountryId $countryId, UserId $userId, Email $email,
-                                  CrushWhatsappUrl $crushWhatsapp, CrushInstagramUrl $crushInstagram, CrushFacebookUrl $crushFacebook,
+    public static function create(CrushId $id, CrushName $name, Age $age, GenderId $genderId, CrushMetAt $metAt,
+                                  CrushZoneId $zoneId, CountryId $countryId, UserId $userId, Email $email,
+                                  CrushWhatsappUrl $wathsappUrl, CrushInstagramUrl $instagramUrl, CrushFacebookUrl $facebookUrl,
                                   bool $isStar, CreatedAt $createdAt, CrushEyesTypesId $eyesTypesId, CrushHairTypesId $hairTypesId, CrushHeightTypesId $heightTypesId,
                                   CrushBodyTypesId $bodyTypesId, CrushSkinTypesId $skinTypesId, CrushTitsTypesId $titsTypesId,
                                   CrushAssTypesId $assTypesId, CrushDickTypesId $dickTypesId
     ): self
     {
-        $crush = new self($id, $name, $age, $genderId, $metAt, $zoneId, $countryId, $userId, $email, $crushWhatsapp,
-            $crushInstagram, $crushFacebook, $isStar, $createdAt, $eyesTypesId, $hairTypesId, $heightTypesId,
+        $crush = new self($id, $name, $age, $genderId, $metAt, $zoneId, $countryId, $userId, $email, $wathsappUrl,
+            $instagramUrl, $facebookUrl, $isStar, $createdAt, $eyesTypesId, $hairTypesId, $heightTypesId,
             $bodyTypesId, $skinTypesId, $titsTypesId, $assTypesId, $dickTypesId
         );
-        $crush->record(new CrushCreatedDomainEvent($id->value(), $name->value(), $email->value()));
+        $crush->record(new CrushCreatedDomainEvent($id->value(), $name->value()));
 
         return $crush;
     }
@@ -210,9 +208,9 @@ final class Crush extends AggregateRoot
     }
 
     /**
-     * @return MetAt
+     * @return CrushMetAt
      */
-    public function metAt(): MetAt
+    public function metAt(): CrushMetAt
     {
         return $this->met_at;
     }

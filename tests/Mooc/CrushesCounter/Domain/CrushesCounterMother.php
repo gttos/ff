@@ -8,7 +8,7 @@ use Gtto\Mooc\CrushesCounter\Domain\CrushesCounter;
 use Gtto\Mooc\CrushesCounter\Domain\CrushesCounterId;
 use Gtto\Mooc\CrushesCounter\Domain\CrushesCounterTotal;
 use Gtto\Mooc\Shared\Domain\CrushId;
-use Gtto\Tests\Mooc\Crushes\Domain\CrushIdMother;
+use Gtto\Tests\Mooc\Shared\Domain\CrushIdMother;
 use Gtto\Tests\Shared\Domain\Repeater;
 
 final class CrushesCounterMother

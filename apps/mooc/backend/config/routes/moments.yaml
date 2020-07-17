@@ -1,0 +1,4 @@
+moments_put:
+  path: /moments/{id}
+  controller: Gtto\Apps\Mooc\Backend\Controller\Moments\MomentsPutController
+  methods:  [PUT]

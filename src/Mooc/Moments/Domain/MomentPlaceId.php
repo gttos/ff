@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace Gtto\Mooc\Shared\Domain;
+namespace Gtto\Mooc\Moments\Domain;
 
 use Gtto\Shared\Domain\ValueObject\Uuid;
 
-final class PlaceId extends Uuid
+final class MomentPlaceId extends Uuid
 {
 }

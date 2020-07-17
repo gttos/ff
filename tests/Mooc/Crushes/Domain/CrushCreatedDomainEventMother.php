@@ -9,6 +9,7 @@ use Gtto\Mooc\Crushes\Domain\CrushCreatedDomainEvent;
 use Gtto\Mooc\Shared\Domain\Email;
 use Gtto\Mooc\Crushes\Domain\CrushName;
 use Gtto\Mooc\Shared\Domain\CrushId;
+use Gtto\Tests\Mooc\Shared\Domain\CrushIdMother;
 use Gtto\Tests\Mooc\Shared\Domain\EmailMother;
 
 final class CrushCreatedDomainEventMother

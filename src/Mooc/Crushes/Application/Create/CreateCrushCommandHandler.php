@@ -8,6 +8,7 @@ use Gtto\Mooc\Crushes\Domain\CrushAssTypesId;
 use Gtto\Mooc\Crushes\Domain\CrushBodyTypesId;
 use Gtto\Mooc\Crushes\Domain\CrushFacebookUrl;
 use Gtto\Mooc\Crushes\Domain\CrushInstagramUrl;
+use Gtto\Mooc\Crushes\Domain\CrushMetAt;
 use Gtto\Mooc\Crushes\Domain\CrushName;
 use Gtto\Mooc\Crushes\Domain\CrushWhatsappUrl;
 use Gtto\Mooc\Crushes\Domain\CrushDickTypesId;
@@ -16,15 +17,14 @@ use Gtto\Mooc\Crushes\Domain\CrushHairTypesId;
 use Gtto\Mooc\Crushes\Domain\CrushHeightTypesId;
 use Gtto\Mooc\Crushes\Domain\CrushSkinTypesId;
 use Gtto\Mooc\Crushes\Domain\CrushTitsTypesId;
+use Gtto\Mooc\Crushes\Domain\CrushZoneId;
 use Gtto\Mooc\Shared\Domain\Age;
 use Gtto\Mooc\Shared\Domain\CountryId;
 use Gtto\Mooc\Shared\Domain\CreatedAt;
 use Gtto\Mooc\Shared\Domain\CrushId;
 use Gtto\Mooc\Shared\Domain\Email;
 use Gtto\Mooc\Shared\Domain\GenderId;
-use Gtto\Mooc\Shared\Domain\MetAt;
 use Gtto\Mooc\Shared\Domain\UserId;
-use Gtto\Mooc\Shared\Domain\ZoneId;
 use Gtto\Shared\Domain\Bus\Command\CommandHandler;
 
 final class CreateCrushCommandHandler implements CommandHandler
@@ -42,8 +42,8 @@ final class CreateCrushCommandHandler implements CommandHandler
         $name           = new CrushName($command->name());
         $age            = new Age($command->age());
         $genderId       = new GenderId($command->genderId());
-        $metAt          = new MetAt(new \DateTime($command->metAt()));
-        $zoneId         = new ZoneId($command->zoneId());
+        $metAt          = new CrushMetAt(new \DateTime($command->metAt()));
+        $zoneId         = new CrushZoneId($command->zoneId());
         $countryId      = new CountryId($command->countryId());
         $email          = new Email($command->email());
         $whatsappUrl    = new CrushWhatsappUrl($command->whatsappUrl());

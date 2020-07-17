@@ -2,16 +2,16 @@
 
 declare(strict_types = 1);
 
-namespace Gtto\Tests\Mooc\Shared\Domain;
+namespace Gtto\Tests\Mooc\Moments\Domain;
 
-use Gtto\Mooc\Shared\Domain\ZoneId;
+use Gtto\Mooc\Shared\Domain\MomentId;
 use Gtto\Tests\Shared\Domain\UuidMother;
 
-final class ZoneIdMother
+final class MomentIdMother
 {
-    public static function create(string $value): ZoneId
+    public static function create(string $value): MomentId
     {
-        return new ZoneId($value);
+        return new MomentId($value);
     }
 
     public static function creator(): callable
@@ -21,7 +21,7 @@ final class ZoneIdMother
         };
     }
 
-    public static function random(): ZoneId
+    public static function random(): MomentId
     {
         return self::create(UuidMother::random());
     }

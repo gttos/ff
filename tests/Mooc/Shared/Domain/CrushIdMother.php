@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Gtto\Tests\Mooc\Crushes\Domain;
+namespace Gtto\Tests\Mooc\Shared\Domain;
 
 use Gtto\Mooc\Shared\Domain\CrushId;
 use Gtto\Tests\Shared\Domain\UuidMother;

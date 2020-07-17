@@ -14,6 +14,7 @@ CREATE TABLE `crushes` (
   `is_star` TINYINT(1) NOT NULL,
   `is_active` TINYINT(1) NOT NULL,
   `created_at` DATE NOT NULL,
+  `updated_at` DATE,
   `eyes_types_id` CHAR(36) NOT NULL,
   `hair_types_id` CHAR(36) NOT NULL,
   `height_types_id` CHAR(36) NOT NULL,
@@ -24,6 +25,20 @@ CREATE TABLE `crushes` (
   `dick_types_id` CHAR(36) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `moments` (
+  `id` CHAR(36) NOT NULL,
+  `place_id` CHAR(36) NOT NULL,
+  `story` VARCHAR(1000) NOT NULL,
+  `rate` TINYINT NOT NULL,
+  `date` DATE NOT NULL,
+  `crush_id` CHAR(36) NOT NULL,
+  `user_id` CHAR(36) NOT NULL,
+  `created_at` DATE NOT NULL,
+  `updated_at` DATE,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 CREATE TABLE `crushes_counter` (
   `id` CHAR(36) NOT NULL,

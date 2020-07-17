@@ -4,18 +4,18 @@ declare(strict_types = 1);
 
 namespace Gtto\Mooc\Crushes\Infrastructure\Persistence\Doctrine;
 
-use Gtto\Mooc\Shared\Domain\UserId;
+use Gtto\Mooc\Crushes\Domain\CrushZoneId;
 use Gtto\Shared\Infrastructure\Persistence\Doctrine\UuidType;
 
-final class UserIdType extends UuidType
+final class CrushZoneIdType extends UuidType
 {
     public static function customTypeName(): string
     {
-        return 'user_id';
+        return 'zone_id';
     }
 
     protected function typeClassName(): string
     {
-        return UserId::class;
+        return CrushZoneId::class;
     }
 }

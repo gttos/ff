@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Gtto\Mooc\Moments\Domain\Moment" table="moments">
+        <id name="id" type="moment_id" column="id" length="36" />
+
+        <embedded name="story" class="Gtto\Mooc\Moments\Domain\MomentStory" use-column-prefix="false" />
+        <embedded name="rate" class="Gtto\Mooc\Moments\Domain\MomentRate" use-column-prefix="false" />
+        <field name="place_id" type="place_id" column="place_id"/>
+        <field name="crush_id" type="crush_id" column="crush_id"/>
+        <field name="user_id" type="user_id" column="user_id"/>
+        <embedded name="date" class="Gtto\Mooc\Moments\Domain\MomentDate" use-column-prefix="false" />
+        <embedded name="created_at" class="Gtto\Mooc\Shared\Domain\CreatedAt" use-column-prefix="false" />
+
+    </entity>
+
+</doctrine-mapping>

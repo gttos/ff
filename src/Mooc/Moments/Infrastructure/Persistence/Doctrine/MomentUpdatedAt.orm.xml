@@ -4,8 +4,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <embeddable name="Gtto\Mooc\Shared\Domain\MetAt">
-        <field name="value" type="string" column="met_at" />
+    <embeddable name="Gtto\Mooc\Shared\Domain\UpdatedAt">
+        <field name="value" type="string" column="updated_at" />
     </embeddable>
 
 </doctrine-mapping>

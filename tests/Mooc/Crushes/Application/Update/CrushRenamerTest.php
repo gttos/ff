@@ -7,12 +7,12 @@ namespace Gtto\Tests\Mooc\Crushes\Application\Update;
 use Gtto\Mooc\Crushes\Application\Update\CrushRenamer;
 use Gtto\Mooc\Crushes\Domain\CrushNotExist;
 use Gtto\Tests\Mooc\Crushes\CrushesModuleUnitTestCase;
-use Gtto\Tests\Mooc\Crushes\Domain\CrushIdMother;
+use Gtto\Tests\Mooc\Shared\Domain\CrushIdMother;
 use Gtto\Tests\Mooc\Crushes\Domain\CrushMother;
 use Gtto\Tests\Mooc\Crushes\Domain\CrushNameMother;
 use Gtto\Tests\Shared\Domain\DuplicatorMother;
 
-final class CrushRenamerTest extends crushesModuleUnitTestCase
+final class CrushRenamerTest extends CrushesModuleUnitTestCase
 {
     private $renamer;
 
