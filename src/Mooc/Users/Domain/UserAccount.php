@@ -4,28 +4,9 @@ declare(strict_types = 1);
 
 namespace Gtto\Mooc\Users\Domain;
 
-use Carbon\Carbon;
-use Gtto\Mooc\Shared\Domain\User\Age;
-use Gtto\Mooc\Shared\Domain\User\AssTypesId;
-use Gtto\Mooc\Shared\Domain\User\BodyTypesId;
-use Gtto\Mooc\Shared\Domain\User\CountryId;
-use Gtto\Mooc\Shared\Domain\User\UserFacebook;
-use Gtto\Mooc\Shared\Domain\User\UserId;
-use Gtto\Mooc\Shared\Domain\User\UserInstagram;
-use Gtto\Mooc\Shared\Domain\User\UserWhatsapp;
-use Gtto\Mooc\Shared\Domain\User\DickTypesId;
-use Gtto\Mooc\Shared\Domain\User\Email;
-use Gtto\Mooc\Shared\Domain\User\EyesTypesId;
-use Gtto\Mooc\Shared\Domain\User\GenderId;
-use Gtto\Mooc\Shared\Domain\User\HairTypesId;
-use Gtto\Mooc\Shared\Domain\User\HeightTypesId;
-use Gtto\Mooc\Shared\Domain\User\PlanId;
-use Gtto\Mooc\Shared\Domain\User\SkinTypesId;
-use Gtto\Mooc\Shared\Domain\User\TitTypesId;
-use Gtto\Mooc\Shared\Domain\User\UserAccountId;
-use Gtto\Mooc\Shared\Domain\User\ZoneId;
+use Gtto\Mooc\Shared\Domain\PlanId;
+use Gtto\Mooc\Shared\Domain\UserAccountId;
 use Gtto\Shared\Domain\Aggregate\AggregateRoot;
-use Symfony\Component\Validator\Constraints\Date;
 
 final class UserAccount extends AggregateRoot
 {
@@ -40,12 +21,12 @@ final class UserAccount extends AggregateRoot
         $this->coins    = 0;
     }
 
-    public static function create(UserId $id, UserName $name, Age $age, GenderId $genderId, \DateTime $metAt, ZoneId $zoneId, CountryId $countryId, UserId $userId): self
+    public static function create(UserAccountId $id, PlanId $planId): self
     {
-        $User = new self($id, $name, $age, $genderId, $metAt, $zoneId, $countryId, $userId);
+        $userAccount = new self($id, $planId);
 
-        $User->record(new UserCreatedDomainEvent($id->value(), $name->value(), $email->value()));
+        // $User->record(new UserCreatedDomainEvent($id->value(), $name->value(), $email->value()));
 
-        return $User;
+        return $userAccount;
     }
 }

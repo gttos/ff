@@ -25,7 +25,7 @@ final class MomentMother
         return new Moment($id, $placeId, $story, $rate, $date, $crushId, $userId, $createdAt);
     }
 
-    public static function fromRequest(CreateMomentCommand $request): moment
+    public static function fromRequest(CreateMomentCommand $request): Moment
     {
         return self::create(
             MomentIdMother::create($request->id()),
@@ -39,7 +39,7 @@ final class MomentMother
         );
     }
 
-    public static function random(): moment
+    public static function random(): Moment
     {
         return self::create(MomentIdMother::random(), MomentPlaceIdMother::random(), MomentStoryMother::random(),
             MomentRateMother::random(), MomentDateMother::random(), CrushIdMother::random(), UserIdMother::random(), CreatedAtMother::random(),);

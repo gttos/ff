@@ -27,7 +27,7 @@ final class CreateMomentCommandHandlerTest extends MomentsModuleUnitTestCase
         $command = CreateMomentCommandMother::random();
 
         $moment         = MomentMother::fromRequest($command);
-        $domainEvent    = MomentCreatedDomainEventMother::frommoment($moment);
+        $domainEvent    = MomentCreatedDomainEventMother::fromMoment($moment);
 
         $this->shouldSave($moment);
         $this->shouldPublishDomainEvent($domainEvent);

@@ -39,6 +39,19 @@ CREATE TABLE `moments` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE `users` (
+  `id` CHAR(36) NOT NULL,
+  `user_account_id` CHAR(36) NOT NULL,
+  `user_session_id` CHAR(36) NOT NULL,
+  `fullname` VARCHAR(255) NOT NULL,
+  `age` TINYINT NOT NULL,
+  `gender_id` CHAR(36) NOT NULL,
+  `country_id` CHAR(36) NOT NULL,
+  `email` VARCHAR(255),
+  `created_at` DATE NOT NULL,
+  `updated_at` DATE,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `crushes_counter` (
   `id` CHAR(36) NOT NULL,

@@ -5,9 +5,9 @@ declare(strict_types = 1);
 namespace Gtto\Mooc\Users\Application\Update;
 
 use Gtto\Mooc\Users\Application\Find\UserFinder;
-use Gtto\Mooc\Users\Domain\UserName;
+use Gtto\Mooc\Users\Domain\UserFullName;
 use Gtto\Mooc\Users\Domain\UserRepository;
-use Gtto\Mooc\Shared\Domain\User\UserId;
+use Gtto\Mooc\Shared\Domain\UserId;
 use Gtto\Shared\Domain\Bus\Event\EventBus;
 
 final class UserRenamer
@@ -23,7 +23,7 @@ final class UserRenamer
         $this->bus        = $bus;
     }
 
-    public function __invoke(UserId $id, UserName $newName): void
+    public function __invoke(UserId $id, UserFullName $newName): void
     {
         $User = $this->finder->__invoke($id);
 

@@ -7,7 +7,7 @@ namespace Gtto\Mooc\Users\Application\Find;
 use Gtto\Mooc\Users\Domain\User;
 use Gtto\Mooc\Users\Domain\UserNotExist;
 use Gtto\Mooc\Users\Domain\UserRepository;
-use Gtto\Mooc\Shared\Domain\User\UserId;
+use Gtto\Mooc\Shared\Domain\UserId;
 
 final class UserFinder
 {

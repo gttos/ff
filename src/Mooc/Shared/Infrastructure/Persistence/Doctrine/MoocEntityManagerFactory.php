@@ -17,7 +17,7 @@ final class MoocEntityManagerFactory
 
         $prefixes = array_merge(
             DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../../Mooc', 'Gtto\Mooc'),
-            DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../../Backoffice', 'Gtto\Backoffice')
+            //DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../../Backoffice', 'Gtto\Backoffice')
         );
 
         $dbalCustomTypesClasses = DbalTypesSearcher::inPath(__DIR__ . '/../../../../../Mooc', 'Mooc');

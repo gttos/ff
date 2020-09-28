@@ -4,68 +4,116 @@ declare(strict_types = 1);
 
 namespace Gtto\Mooc\Users\Domain;
 
-use Carbon\Carbon;
-use Gtto\Mooc\Shared\Domain\User\Email;
-use Gtto\Mooc\Shared\Domain\User\UserAccountId;
-use Gtto\Mooc\Shared\Domain\User\UserId;
-use Gtto\Mooc\Shared\Domain\User\UserSessionId;
+use Gtto\Mooc\Shared\Domain\Age;
+use Gtto\Mooc\Shared\Domain\CreatedAt;
+use Gtto\Mooc\Shared\Domain\Email;
+use Gtto\Mooc\Shared\Domain\GenderId;
+use Gtto\Mooc\Shared\Domain\CountryId;
+use Gtto\Mooc\Shared\Domain\UserId;
 use Gtto\Shared\Domain\Aggregate\AggregateRoot;
 
 final class User extends AggregateRoot
 {
     private $id;
-    private $name;
+    private $fullname;
     private $age;
-    private $email;
+    private $gender_id;
     private $country_id;
-    private $user_session_id;
-    private $user_account_id;
+    private $email;
+    private $pin;
+    private $created_at;
 
-    public function __construct(UserId $id, Email $email, UserSessionId $userSessionId, UserAccountId $userAccountId)
-    {
+    public function __construct(
+        UserId $id,
+        UserFullName $name,
+        Age $age,
+        GenderId $genderId,
+        CountryId $countryId,
+        Email $email,
+        UserPin $pin,
+        CreatedAt $createdAt
+    ){
         $this->id               = $id;
+        $this->fullname         = $name;
+        $this->age              = $age;
+        $this->gender_id        = $genderId;
+        $this->country_id       = $countryId;
         $this->email            = $email;
-        $this->user_session_id  = $userSessionId;
-        $this->user_account_id  = $userAccountId;
-        $this->created_at       = Carbon::now('UTC');
+        $this->pin              = $pin;
+        $this->created_at       = $createdAt;
     }
 
-    public static function create(UserId $id, Email $email, UserSessionId $userSessionId, UserAccountId $userAccountId, ...$params): self´
+    public static function create(UserId $id, UserFullName $name, Age $age, GenderId $genderId, CountryId $countryId, Email $email, UserPin $pin, CreatedAt $createdAt): self
     {
-        $User = new self($id, $email, $userSessionId, $userAccountId);
+        $user = new self($id, $name, $age, $genderId, $countryId, $email, $pin, $createdAt);
+        $user->record(new UserCreatedDomainEvent($id->value(), $name->value()));
 
-        $User->setName($params['name']);
-        $User->setAge($params['age']);
-        $User->setCountryId($params['countryId']);
-
-        $User->record(new UserCreatedDomainEvent($id->value(), $email->value()));
-
-        return $User;
+        return $user;
     }
 
     /**
-     * @param mixed $name
+     * @return UserId
      */
-    public function setName($name): void
+    public function id(): UserId
     {
-        $this->name = $name;
+        return $this->id;
     }
 
     /**
-     * @param mixed $age
+     * @return UserFullName
      */
-    public function setAge($age): void
+    public function fullName(): UserFullName
     {
-        $this->age = $age;
+        return $this->fullname;
     }
 
     /**
-     * @param mixed $country_id
+     * @param $newName
+     * @return UserFullName
      */
-    public function setCountryId($country_id): void
+    public function rename($newName): UserFullName
     {
-        $this->country_id = $country_id;
+        return $this->fullname = $newName;
     }
 
+    /**
+     * @return Age
+     */
+    public function age(): Age
+    {
+        return $this->age;
+    }
+
+    /**
+     * @return CountryId
+     */
+    public function countryId(): CountryId
+    {
+        return $this->country_id;
+    }
+
+    /**
+     * @return GenderId
+     */
+    public function genderId(): GenderId
+    {
+        return $this->gender_id;
+    }
+
+    /**
+     * @return Email
+     */
+    public function email(): Email
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return CreatedAt
+     */
+    public function createdAt(): CreatedAt
+    {
+        return $this->created_at;
+    }
 
 }

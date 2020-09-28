@@ -4,10 +4,16 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Gtto\Mooc\Users\Domain\User" table="Users">
-        <id name="id" type="User_id" column="id" length="36" />
+    <entity name="Gtto\Mooc\Users\Domain\User" table="users">
+        <id name="id" type="user_id" column="id" length="36" />
 
-        <embedded name="name" class="Gtto\Mooc\Users\Domain\UserName" use-column-prefix="false" />
+        <embedded name="fullname" class="Gtto\Mooc\Users\Domain\UserFullName" use-column-prefix="false" />
+        <embedded name="age" class="Gtto\Mooc\Shared\Domain\Age" use-column-prefix="false" />
+        <field name="gender_id" type="gender_id" column="gender_id"/>
+        <field name="country_id" type="country_id" column="country_id"/>
+        <embedded name="email" class="Gtto\Mooc\Shared\Domain\Email" use-column-prefix="false" />
+        <embedded name="pin" class="Gtto\Mooc\Users\Domain\UserPin" use-column-prefix="false" />
+        <embedded name="created_at" class="Gtto\Mooc\Shared\Domain\CreatedAt" use-column-prefix="false" />
     </entity>
 
 </doctrine-mapping>

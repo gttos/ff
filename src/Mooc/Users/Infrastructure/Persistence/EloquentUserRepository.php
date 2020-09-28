@@ -17,7 +17,7 @@ final class EloquentUserRepository implements UserRepository
     {
         $model           = new UserEloquentModel();
         $model->id       = $User->id()->value();
-        $model->name     = $User->name()->value();
+        $model->name     = $User->fullName()->value();
 
         $model->save();
     }
