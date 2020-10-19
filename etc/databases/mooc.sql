@@ -41,11 +41,10 @@ CREATE TABLE `moments` (
 
 CREATE TABLE `users` (
   `id` CHAR(36) NOT NULL,
-  `user_account_id` CHAR(36) NOT NULL,
-  `user_session_id` CHAR(36) NOT NULL,
   `fullname` VARCHAR(255) NOT NULL,
   `age` TINYINT NOT NULL,
   `gender_id` CHAR(36) NOT NULL,
+  `pin` TINYINT NOT NULL,
   `country_id` CHAR(36) NOT NULL,
   `email` VARCHAR(255),
   `created_at` DATE NOT NULL,
